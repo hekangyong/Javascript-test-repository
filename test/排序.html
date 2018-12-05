@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var arr = [2, 3, 6, 4, 2, 1, 90, 100, 20, 5];
+
+        function mpsort(arr) {
+            var len = arr.length;
+            for (var i = 0; i < len; i++) {
+                for (var a = 0; a < len - 1 - i; a++) {
+                    if (arr[a] > arr[a + 1]) {
+                        var temp = arr[a + 1];
+                        arr[a + 1] = arr[a];
+                        arr[a] = temp
+                    }
+                }
+            }
+            return arr;
+        }
+        mpsort(arr);
+        document.write("冒泡排序后的数组" + mpsort(arr) + "<br>"); // [1, 2, 2, 3, 4, 5, 6, 20, 90, 100]
+
+        var aaa = [2, 3, 6, 4, 2, 1, 90, 100, 20, 5]
+
+        function insertSort(aaa) {
+            // 从第二个元素开始，因为要留出一个坑
+            for (var i = 1; i < aaa.length; i++) {
+                var x = aaa[i];
+                for (var j = i - 1; aaa[j] > x; j--) { //后挪空出位置 .
+                    aaa[j + 1] = aaa[j];
+                }
+                if (aaa[j + 1] != x) {
+                    aaa[j + 1] = x;
+                }
+            }
+            return aaa;
+        }
+
+        document.write("插入排序的数组: " + insertSort(arr, 2) + "<br>");
+
+        function shellSort(arr) {
+            var gap = Math.floor(arr.length / 2);
+            while (gap > 0) {
+                for (var i = gap; i < arr.length; i++) {
+                    temp = arr[i];
+                    for (var j = i; j >= gap & arr[j - gap] > temp; j -= temp) {
+                        arr[i] = arr[j - gap];
+                    }
+                    arr[j] = temp;
+                }
+                gap = Math.floor(gap / 2);
+            }
+            return arr;
+        }
+
+        document.write("希尔排序后的数组: " + shellSort(arr));
+
+
+
+        var arra = [0, 42, 45, 4, 6, 55, 22, 2, 1, 3, 8, 9];
+
+        function maopSort(arr) {
+            var aa = arra.length;
+            for (var i = 0; i < aa; i++) {
+                for (var a = 1; a < aa - 1 - i; a++) {
+                    if (arra[a] > arra[a + 1]) {
+                        var temp = arra[a + 1];
+                        arra[a + 1] = arra[a];
+                        arra[a] = temp;
+                    }
+                }
+            }
+            return arra;
+        }
+        console.log(maopSort(arr));
+
+        var insertSortArr = [21, 23, 0, 23, 1, 6, 4, 99, 100, 200, 50, 8];
+
+        function InsertSort(arr) {
+            for (var i = 0; i < insertSortArr.length; i++) {
+                var x = insertSortArr[i];
+                for (var j = i - 1; insertSortArr[j] > x; j--) {
+                    insertSortArr[j + 1] = insertSortArr[j];
+                }
+                if (insertSortArr[j + 1] != x) {
+                    insertSortArr[j + 1] = x
+                }
+            }
+            arr = insertSortArr;
+            console.log("aaa " + arr);
+            return insertSortArr;
+        }
+        console.log(InsertSort(arr));
+    </script>
+
+</body>
+
+</html>

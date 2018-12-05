@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>倒计时</title>
+    <!--以下为css样式-->
+    <style type="text/css">
+        .daojishi h2 {
+            font-family: Helvetica, Microsoft YaHei, Arial, sans-serif;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #151515;
+        }
+
+        .daojishi #timer {
+            font-family: Helvetica, Microsoft YaHei, Arial, sans-serif;
+            font-size: 14px;
+            color: #151515;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body onload="timer()">
+    <div class="daojishi">
+        <h2>剩余时间为：</h2>
+        <div id="timer">
+        </div>
+    </div>
+    <script>
+        function timer() {
+            var ts = (new Date(2018, 11, 11, 9, 0, 0)) - (new Date()); //计算剩余的毫秒数  
+            var ss = parseInt(ts / 1000 % 60, 10); //计算剩余的秒数  
+            ss = checkTime(ss);
+            document.getElementById("timer").innerHTML = ss + "秒";
+            setInterval("timer()", 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</body>
+
+</html>

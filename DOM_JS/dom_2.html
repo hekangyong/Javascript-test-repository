@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getAttribute()</title>
+</head>
+
+<body>
+    <ul>
+        <li>javascript</li>
+        <li>HTML/CSS</li>
+        <li>jQuery</li>
+    </ul>
+
+    <hr>
+
+    javascript
+    <p>javascript</p>
+    <div>jQuery</div>
+    <h5>PHP</h5>
+    
+    <hr>
+
+    <script type="text/javascript">
+        function list() {
+            var list_a = document.getElementsByTagName("li");
+            for (var i = 0; i < list_a.length; i++) {
+                document.write("li:" + i + "<br>");
+                document.write("节点名称：" + list_a[i].nodeName + "<br>");
+                document.write("节点的值：" + list_a[i].nodeValue + "<br>");
+                document.write("节点的属性：" + list_a[i].nodeType + "<br>" + "<br>" + "<br>");
+            }
+        }
+        list();
+
+        let div = document.getElementsByTagName("div");
+        for (let i = 0; i < div.length; i++) {
+            document.write("节点类型:" + div[i].nodeName + " " + div[i].nodeType + " " + div[i].nodeValue + "<br>");
+        }
+    </script>
+</body>
+
+</html>

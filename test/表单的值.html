@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>js的this属性的运用</title>
+
+    <style>
+
+        h2 {
+            height: 30px;
+            width: 300px;
+            border: 2px solid pink;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            margin: 40px auto;
+        }
+
+        li {
+            height: 150px;
+            width: 100px;
+            background: pink;
+            border: 2px solid #333;
+            margin-top: 30px;
+            margin-left: 250px;
+            float: left;
+            list-style: none;
+        }
+
+        div {
+            height: 150px;
+            width: 200px;
+            background: yellow;
+            border: 2px solid green;
+            margin-top: 100px;
+            display: none;
+        }
+
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            var oUl = document.getElementById('list');
+
+            var aLi = document.getElementsByTagName('li');
+
+            var that = null;
+
+            for (var i = 0; i < aLi.length; i++) {
+
+                aLi[i].onmousemove = function () {
+
+                    that = this;
+
+                    fn();
+
+                }
+
+                function fn() {
+
+                    that.getElementsByTagName('div')[0].style.display = 'block';
+
+                }
+
+                aLi[i].onmouseout = function () {
+
+                    this.getElementsByTagName('div')[0].style.display = 'none';
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+<h2>this属性应用实例</h2>
+
+<ul id="list">
+
+    <li>
+
+        <div></div>
+
+    </li>
+
+    <li>
+
+        <div></div>
+
+    </li>
+
+    <li>
+
+        <div></div>
+
+    </li>
+
+</ul>
+
+</body>
+
+</html>

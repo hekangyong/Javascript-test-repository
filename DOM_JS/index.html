@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+    <script>
+        /*普通对象和函数对象*/
+        var o1 = {};
+        var o2 = new Object();
+        var o3 = new f1();
+
+        function f1(){}
+
+        var f2 = new function(){};
+        var f3 = new Function('str', 'console.log(str)');
+
+        console.log(typeof Object);
+        console.log(typeof Function);
+        console.log(typeof f1);
+        console.log(typeof f2);
+        console.log(typeof f3);
+        console.log(typeof o1);
+        console.log(typeof o2);
+        console.log(typeof o3);
+
+
+
+        /*构造函数*/
+        function Person(name, age, job){
+            this.name = name;
+            this.age = age;
+            this.job = job;
+
+            this.sayName = function(){
+                console.log("person: ",this.name)
+            };
+        }
+
+        var person1 = new Person('sbdl', 18, '专注sb十八年');
+        person1.sayName();
+        var person2 = new Person('离人殇', 30, '歌手');
+
+        console.log(person1);
+        console.log(person1.constructor == Person);
+        console.log(person2);
+        console.log(person2.constructor == Person);
+
+
+
+        /*原型对象*/
+        function User(){}
+        // User.prototype.name = 'asdasd';
+        // User.prototype.age = 28;
+        // User.prototype.job = 'Software Engineer';
+        //
+        // User.prototype.sayName = function(){
+        //     alert(this.name);
+        // }
+
+        User.prototype = {
+            name: 'adada',
+            age: 28,
+            job: 'Spfeware Engineer',
+            sayName: function(){
+                alert(this.name)
+            }
+        }
+
+        var user1 = new User();
+        user1.sayName();
+        var user2 = new User();
+        user2.sayName();
+
+        console.log(user1.sayName == user2.sayName);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

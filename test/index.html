@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style src="style.css"></style>
+</head>
+<body>
+<script>
+    function Counter(start){
+        var count = start;
+        return {
+            increment: function(){
+                count++;
+            },
+            get:function () {
+              return count;
+            }
+        }
+    }
+
+    var foo = new Counter(4);
+    // foo.increment();
+    // foo.get();
+    foo.hack = function(){
+        count = 1337;
+    };
+    console.log(foo);
+
+    for(var a = 0; a < 10; a++){
+        setTimeout(function(){
+            console.log(a)
+        }, 1500)
+    }
+
+    for (var i = 0; i< 10; i++){
+        (function(e){
+            setTimeout(function(){
+                console.log(e);
+            }, 3000);
+        })(i);
+    }
+
+    for(var j = 0; j < 10; j++){
+        setTimeout((function(e){
+            return function(){
+                console.log("4500: " + e)
+            }
+        })(j),4500);
+    }
+</script>
+</body>
+</html>

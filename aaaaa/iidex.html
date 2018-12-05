@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="开始游戏" id="startBtn">
+    <input type="button" value="重新开始游戏" id="restartBtn">
+    <input type="button" value="加持时间" id="addTime">
+    </br>
+    游戏倒计时：
+    <span id="djsaa"></span>秒
+    <script>
+        var gameTime;
+        var gameStart;
+        var overGame;
+        var ii;
+        var startBtn = document.getElementById('startBtn');
+        var restartBtn = document.getElementById('restartBtn');
+        var djsaa = document.getElementById('djsaa');
+        var addTimea = document.getElementById('addTime');
+        restartBtn.disabled = true;
+        // console.log(djsaa)
+        startBtn.onclick = function () {
+            // console.log('大家好我们又见面了!!!');
+            gameStart = new Date();
+            djs();
+        }
+
+        restartBtn.onclick = function () {
+            gameStart = new Date();
+            djs();
+        }
+        addTimea.onclick = function () {
+            console.log("a")
+        }
+
+        function djs() {
+            // console.log('已连接到我们倒计时函数中');
+            var playing = new Date();
+            overGame = gameTime - parseInt((playing - gameStart) / 1000);
+            gameTime = 10;
+            ii = setTimeout('djs()', 1000);
+            djsaa.innerHTML = overGame;
+            if (overGame < 1) {
+                console.log('您时间到了请下机');
+                clearTimeout(ii);
+                restartBtn.disabled = false;
+            }
+            startBtn.disabled = true;
+        }
+    </script>
+</body>
+
+</html>

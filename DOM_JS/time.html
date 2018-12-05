@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>计时器</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="clock" size="50" />
+        <input type="button" value="Stop" onclick="stop()" id="status" />
+    </form>
+
+    <form>
+        <input type="text" id="count" />
+    </form>
+
+    <form>
+        <input type="text" id="time">
+        <input type="button" onclick="start()" value="开始">
+        <input type="button" onclick="stop()" value="停止">
+    </form>
+
+    <form>
+        <h1>操作成功</h1>
+        <p><span id="num"></span>秒后回到主页</p>
+        <a href="#" onclick="back()">返回</a>
+    </form>
+
+
+    <script type="text/javascript">
+        function clock() {
+            var time = new Date();
+            document.getElementById("clock").value = time;
+        }
+
+        var i = setInterval("clock()", 100);
+
+        var a = true;
+
+        function stop() {
+            if (a == true) {
+                clearInterval(i);
+                var sta = document.getElementById("status");
+                sta.value = "Start"
+                a = false;
+            } else {
+                i = setInterval("clock()", 100);
+                var sta = document.getElementById("status");
+                sta.value = "Stop"
+                a = true;
+            }
+        }
+
+        var num = 0;
+        setTimeout("startCount()", 1000);
+
+        function startCount() {
+            document.getElementById("count").value = num;
+            num++;
+            setTimeout("startCount()", 1000);
+        }
+
+        var setTime,
+            num_a = 0;
+
+        function start() {
+            document.getElementById("time").value = num_a;
+            num_a++;
+            if (num_a == 60) {
+                num_a = 0;
+            }
+            setTime = setTimeout("start()", 1000);
+        }
+
+        function stop() {
+            clearTimeout(setTime);
+        }
+
+        var num_b = 5,
+            setTime_a;
+
+        function number() {
+            var num = document.getElementById("num").innerHTML = num_b;
+            num_b--;
+            setTime_a = setTimeout("number()", 1000);
+            if (num == 0) {
+                clearTimeout(setTime_a);
+                // location.assign("https://www.imooc.com/");
+                alert("time over")
+            }
+        }
+        number();
+
+        function back() {
+            location.history.back()
+        }
+    </script>
+</body>
+
+</html>

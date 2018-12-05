@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <button type="button" onclick="display()" value="OK">aa</button>
+    <div id="x" style="background:none;height:300px;">uiyuiyi</div>
+    <div id="dasdas"></div>
+    <script>
+        function display() {
+            var a = document.getElementById('x');
+            var b = new Array(10);
+            b[0] = "images/3813_P_1456924002814.jpg";
+            b[1] = "images/20140527123329_cCGLu.jpg";
+            b[2] = "images/01300001128119146475325219223_s.jpg";
+            b[3] = "images/c2cf2dc539707a77ca40b8afe64ab1c1.jpg";
+            b[4] = "images/Certificate0018305.jpeg";
+            b[5] = "images/images.jpg";
+            b[6] = "images/v2-46bcc1db7af5bc2878ac4ac7134cd674_b.jpg";
+            b[7] = "images/873441.png";
+            b[8] = "images/ff5.jpg";
+            b[9] = "images/user.jpg";
+            var c = Math.floor(Math.random() * 10);
+            var A = document.createElement('img');
+            A.setAttribute('src',b[c]);
+            A.setAttribute('id', 'aa');
+            // a.style.background="url("+b[c]+")";
+            a.appendChild(A);
+        }
+    </script>
+</body>
+
+</html>

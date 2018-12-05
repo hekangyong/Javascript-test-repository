@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/logo_black.png">
+    <title>auto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">`
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="play-wrapper">
+            <img class="cover" src="http://orot63356.bkt.clouddn.com/cover_maps.jpg">
+            <audio class="music" controls="true">
+                您的浏览器不支持 audio 标签。
+            </audio>
+            <div class="detail">
+                <div class="info">
+                    <div class="name"></div>
+                    <div class="singer"></div>
+                </div>
+                <div class="controls">
+                    <button class="ply-btn">
+                        <i class="icon-play"></i>
+                    </button>
+                    <div class="progressBar">
+                        <span class="progress"></span>
+                    </div>
+                    <div class="time">
+                        <span class="Ctime">0:00</span>/
+                        <span class="Ttime"></span>
+                    </div>
+                    <button class="noVol">
+                        <i class="icon-volume-medium"></i>
+                    </button>
+                    <div class="vol">
+                        <span class="nowVol"></span>
+                    </div>
+                    <button class="menu">
+                        <i class="icon-menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mode">
+            <span class="preSongBtn">
+                <i class='icon-backward'></i>
+            </span>
+            <span class="nextSongBtn">
+                <i class="icon-forward"></i>
+            </span>
+            <span class="playMode">
+                <i class="icon-repeat"></i>
+            </span>
+        </div>
+        <div class="list">
+            <ul class="songContainer">
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
+
+<script>
+    window.onload = function () {
+        new Controls({
+            songs: [
+                {
+                    src: "http://m10.music.126.net/20180521140214/04bf6b7d0d165b74f00d5302b64c5ff5/ymusic/a1fa/52d3/7fec/f0d327ed9ca2e0eba72ad92ea508c70e.mp3",
+                    name: "home",
+                    author: "王诗安",
+                    cover: "http://p1.music.126.net/Sw6oUm7jEL8YU76rPMJl-g==/18716986441276771.jpg?param=130y130"
+                },
+                {
+                    src: 'http://orot63356.bkt.clouddn.com/yhczw.mp3',
+                    name: '萤火虫之舞',
+                    author: '萤火虫',
+                    cover: 'http://orot63356.bkt.clouddn.com/cover_yhczw.jpg'
+                },
+
+                {
+                    src: 'http://orot63356.bkt.clouddn.com/maps.mp3',
+                    name: 'Maps',
+                    author: 'Maroon 5',
+                    cover: 'http://orot63356.bkt.clouddn.com/cover_maps.jpg'
+                },
+                {
+                    src: 'http://orot63356.bkt.clouddn.com/%E6%96%B9%E5%A4%A7%E5%90%8C%20-%20%E6%98%A5%E9%A3%8E%E5%90%B9%E4%B9%8B%E5%90%B9%E5%90%B9%E9%A3%8EMIX.mp3',
+                    name: '春风吹',
+                    author: '方大同',
+                    cover: 'http://orot63356.bkt.clouddn.com/cover_cfc.jpg'
+                }
+            ]
+        });
+    }
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三级联动select选择</title>
+</head>
+
+<body>
+    <select name="countray" id="countray" onchange="add12(this);">
+        <option value="0">--请选择--</option>
+        <option value="中国">中国</option>
+        <option value="美国">美国</option>
+        <option value="德国">德国</option>
+        <option value="日本">日本</option>
+    </select>
+    <select name="city" id="city">
+        <option value="0">--请选择--</option>
+    </select>
+
+    <script>
+        let arr = new Array();
+        arr[0] = ["中国", "南京", "北京", "广东", "湖南", "浙江"];
+        arr[1] = ["美国", "华盛顿", "纽约", "底特律", "休斯顿"];
+        arr[2] = ["德国", "慕尼黑", "柏林", "法兰克福", "狼堡"];
+        arr[3] = ["日本", "东京", "大阪", "北海道", "长崎", "广岛"];
+
+        function add12(val) {
+            // alert(val.value);
+            let sel_val = val.value;
+            let city = document.getElementById("city");
+            for (let i = 0; i < arr.length; i++) {
+                let n_arr = arr[i]
+                if (n_arr[0] == sel_val) {
+                    console.log(n_arr);
+                    city.innerHTML = "";
+                    for (let z = 0; z < n_arr.length; z++) {
+                        let city_val = n_arr[z];
+                        (0 == z) ? city_val = "--请选择--": console.log("hh")
+                        let city_opt = document.createElement("option");
+                        let city_opt_val = document.createTextNode(city_val);
+                        city_opt.appendChild(city_opt_val);
+                        city.appendChild(city_opt);
+                    }
+                } else {
+                    continue;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

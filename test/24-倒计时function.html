@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//要么，你让2-1在定时器里每秒减一次。要么你在定时器里取个时间 让后台传个服务器实时时间，
+			//拿这个时间与结束时间相减。能保证定时器每次更新，里面都会有个不一样的值
+			
+			function cutDownFun(startingTime,endTime,successFun){
+				var timerStyle1 = null,
+				 	NowTime = startingTime;   // 服务器当前时间加载页面从服务器获取
+				function charLeftAll(num){
+		        	return num<10?'0'+num:''+num;
+		        };		
+				function cutDown(){
+					v=Math.abs(endTime-NowTime);	//传进来的时间与现在的时间之间的差（毫秒数）
+					//把毫秒转成对应的天、时、分、秒
+					var d = parseInt(v/(24*3600000)),
+						h = parseInt(v%(24*3600000)/3600000),
+						m = parseInt(v%(24*3600000)%3600000/60000),
+						s = parseInt(v%(24*3600000)%3600000%60000/1000);
+					 var data = {
+							Day: charLeftAll(d),
+							Hour: charLeftAll(h),
+							Minute: charLeftAll(m),
+							Second: charLeftAll(s)
+						};
+						if(successFun != undefined && typeof (successFun) === 'function'){
+							successFun(data)
+						};
+						if(v==0){
+							clearInterval(timerStyle1);
+							return false;
+						};
+						NowTime  = NowTime +1000;
+						
+				};
+				cutDown();
+				clearInterval(timerStyle1);
+				timerStyle1 = setInterval(cutDown,1000);
+			}
+			window.onload=function(){
+				var d1=document.getElementById("d1");
+				// 1521085668543  1521172018543 
+				var startTime1 =1521085668543;
+				var endTime1 =1521172068543;
+				
+				cutDownFun(startTime1,endTime1,function(obj){
+					d1.innerHTML=''+obj.Day+'天'+obj.Hour+'时'+obj.Minute+'分'+obj.Second+'秒';
+				});
+			};
+		</script>
+		
+		<script type="text/javascript">
+			function cutDownFun(startingTime,endTime,successFun){
+				var timerStyle2 = null,
+		     		EndTime =new Date(endTime),
+				 	NowTime = new Date(startingTime);  //  // 服务器当前时间加载页面从服务器获取
+				function charLeftAll(num){
+		        	return num<10?'0'+num:''+num;
+		        };		
+				function cutDown(){
+					v=Math.abs(EndTime.getTime()- NowTime.getTime());	//传进来的时间与现在的时间之间的差（毫秒数）
+					console.log(v)
+					//把毫秒转成对应的天、时、分、秒
+					var d = parseInt(v/(24*3600000)),
+						h = parseInt(v%(24*3600000)/3600000),
+						m = parseInt(v%(24*3600000)%3600000/60000),
+						s = parseInt(v%(24*3600000)%3600000%60000/1000);
+					 var data = {
+							Day: charLeftAll(d),
+							Hour: charLeftAll(h),
+							Minute: charLeftAll(m),
+							Second: charLeftAll(s)
+						};
+						if(successFun != undefined && typeof (successFun) === 'function'){
+							successFun(data)
+						};
+						if(v==0){
+							clearInterval(timerStyle2);
+							return false;
+						};
+						NowTime  = new Date(NowTime.valueOf() + 1000);
+						
+				};
+			cutDown();
+			clearInterval(timerStyle2);
+			timerStyle2 = setInterval(cutDown,1000);
+		}
+		
+		window.onload=function(){
+				var d1=document.getElementById("d1");
+				// 1521085668543  1521172018543 
+				var startTime1 =1521085668543;
+				var endTime1 =1521172068543;
+					cutDownFun(startTime1,endTime1,function(obj){
+						d1.innerHTML=''+obj.Day+'天'+obj.Hour+'时'+obj.Minute+'分'+obj.Second+'秒';
+					});
+			};
+		</script>
+		<div id="d1"></div>
+		<div id="d2"></div>
+	</body>
+</html>
