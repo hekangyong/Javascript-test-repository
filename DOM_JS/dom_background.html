@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom_background</title>
+    <style>
+        #box_div{
+            background-color: black;
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label>属性名</label>
+        <input type="text" id="name" value="background-color">
+        <label>属性值</label>
+        <input type="text" id="texxt">
+        <input type="button" value="确定" id="sure">
+        <input type="button" value="重置" id="resert">
+        <div id="box_div"></div>
+    </div>
+
+    <script>
+        let styles = function (dom, name, cc) {
+            dom.style[name] = cc;
+        }
+        window.onload = function () {
+            let sure = document.getElementById("sure");
+            let res = document.getElementById("resert");
+            let box = document.getElementById("box_div")
+
+            sure.onclick = function () {
+                let name = document.getElementById("name").value;
+                let css = document.getElementById("texxt").value;
+                styles(box, name, css);
+            }
+
+            res.onclick = function() {
+                box.removeAttribute("style");
+            }
+        }
+    </script>
+</body>
+
+</html>

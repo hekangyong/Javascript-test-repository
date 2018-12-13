@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index_preview</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="img_big" class="img_style display">
+        <div class="img" id="cre_img">
+            <div class="buton_span">
+                <div class="close" id="close_h">x</div>
+                <div class="img_lb" id="img_lb_id" style="left: -1000px;">
+                    <img src="logo.png" alt="hhhh" id="img_mod_a" class="lb_img_box">
+                    <img src="enheng.png" alt="hhhh" id="img_mod_a" class="lb_img_box show">
+                    <img src="jszc.png" alt="hhhh" id="img_mod_a" class="lb_img_box">
+                    <img src="kfgj.jpg" alt="hhhh" id="img_mod_a" class="lb_img_box">
+                    <img src="logo.png" alt="hhhh" id="img_mod_a" class="lb_img_box">
+                    <img src="enheng.png" alt="hhhh" id="img_mod_a" class="lb_img_box">
+                </div>
+                <div id="buttons">
+                    <span index="1" class="on"></span>
+                    <span index="2"></span>
+                    <span index="3"></span>
+                    <span index="4"></span>
+                </div>
+                <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+                <a href="javascript:;" id="next" class="arrow">&gt;</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <img src="enheng.png" alt="hhhh" id="img_mod" class="img_fluid">
+        <img src="jszc.png" alt="hhhh" id="img_mod" class="img_fluid">
+        <img src="kfgj.jpg" alt="hhhh" id="img_mod" class="img_fluid">
+        <img src="logo.png" alt="hhhh" id="img_mod" class="img_fluid">
+
+    </div>
+
+    <script>
+        window.onload = function () {
+            let lb_img = document.getElementsByClassName("lb_img_box");
+            let img_mod = document.getElementsByClassName("container")[0].children;
+            let img_big = document.getElementById("img_big");
+            let cre_img = document.getElementById("cre_img");
+            let close = document.getElementById("close_h");
+            let prev = document.getElementById("prev");
+            let next = document.getElementById("next");
+            let img_lb = document.getElementById("img_lb_id");
+            let lb_img_mod = document.querySelectorAll(".lb_img_box");
+            let button_span = document.getElementsByTagName("span");
+            let animated = false;
+            let index = 1;
+
+            for (let i = 0; i < img_mod.length; i++) {
+                img_mod[i].onclick = function () {
+                    let iimg = img_mod[i];
+                    img_big.setAttribute("class", "img_style")
+                    setTimeout(() => {
+                        cre_img.setAttribute("class", "img img_show");
+                    }, 30);
+                    img_lb.style.left = (i + 1) * (-1000) + "px";
+                    for (let j = 0; j < button_span.length; j++) {
+                        if (i == j) {
+                            button_span[i].className = "on";
+                            index = i + 1;
+                        } else {
+                            button_span[j].className = ""
+                        }
+                    }
+                    console.log(index);
+                }
+            }
+
+            for (let a = 0; a < button_span.length; a++) {
+                button_span[a].onclick = function () {
+                    let button_index = button_span[a].getAttribute("index");
+                    let btnOffsetW = -lb_img_mod[a].offsetWidth * (button_index - index);
+                    if (!animated) {
+                        animate(btnOffsetW, lb_img_mod[a]);
+                        index = button_index;
+                    }
+                    showButton(button_index);
+                }
+            }
+
+            close.onclick = function () {
+                setTimeout(() => {
+                    cre_img.setAttribute("class", "img");
+                }, 30);
+                img_big.setAttribute("class", "img_style display")
+            }
+
+            prev.onclick = function () {
+                if (!animated) {
+                    if (index == 1) {
+                        index = 4;
+                    } else {
+                        index -= 1;
+                    }
+                    showButton(index);
+                    prev_pic();
+                }
+
+            }
+            next.onclick = function () {
+                if (!animated) {
+                    if (index == 4) {
+                        index = 1;
+                    } else {
+                        index += 1;
+                    }
+                    showButton(index);
+                    next_pic()
+                }
+            }
+
+            function animate(offWidth, img_mod) {
+                let time = 200;
+                let interval = 10;
+                let speed = offWidth / (time / interval);
+                animated = true;
+                let newLeft = parseInt(img_lb.style.left) + offWidth;
+
+                function go() {
+                    if ((speed > 0 && parseInt(img_lb.style.left) < newLeft) || (speed < 0 && parseInt(img_lb.style
+                            .left) > newLeft)) {
+                        img_lb.style.left = parseInt(img_lb.style.left) + speed + "px";
+                        setTimeout(go, interval);
+                    } else {
+                        animated = false;
+                        if (newLeft > -1000) {
+                            img_lb.style.left = -4000 + "px";
+                        } else if (newLeft < -4000) {
+                            img_lb.style.left = -1000 + "px";
+                        }
+                        
+                    }
+                }
+                go();
+            }
+
+            function prev_pic() {
+                for (let i = 0; i < lb_img_mod.length; i++) {
+                    let lb_img_class = lb_img_mod[i].className;
+                    if (lb_img_class == "lb_img_box show") {
+                        let lb_width = lb_img_mod[i].offsetWidth;
+                        animate(lb_width, lb_img_mod[i - 1])
+                    }
+                }
+            }
+
+            function next_pic() {
+                for (let i = 0; i < lb_img_mod.length; i++) {
+                    let lb_img_class = lb_img_mod[i].className;
+                    if (lb_img_class == "lb_img_box show") {
+                        let lb_width = - +lb_img_mod[i].offsetWidth;
+                        animate(lb_width, lb_img_mod[i + 1])
+                    }
+                }
+            }
+
+            function showButton(index) {
+                for (let i = 0; i < button_span.length; i++) {
+                    let new_index = i + 1;
+                    (index == new_index) ? button_span[i].className = "on": button_span[i].className = "";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

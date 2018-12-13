@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <select name="countray" id="countray" onchange="add12(this);">
+    <select name="countray" id="countray" onchange="add12(this)">
         <option value="0">--请选择--</option>
         <option value="中国">中国</option>
         <option value="美国">美国</option>
@@ -34,11 +34,11 @@
             for (let i = 0; i < arr.length; i++) {
                 let n_arr = arr[i]
                 if (n_arr[0] == sel_val) {
-                    console.log(n_arr);
+                    // console.log(n_arr);
                     city.innerHTML = "";
                     for (let z = 0; z < n_arr.length; z++) {
                         let city_val = n_arr[z];
-                        (0 == z) ? city_val = "--请选择--": console.log("hh")
+                        (0 == z) ? city_val = "--请选择--": console.log("hh");
                         let city_opt = document.createElement("option");
                         let city_opt_val = document.createTextNode(city_val);
                         city_opt.appendChild(city_opt_val);

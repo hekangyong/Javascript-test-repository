@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index_preview</title>
+    <style>
+        .img_fluid {
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .display {
+            display: none;
+        }
+
+        .img_style {
+            background-color: rgba(0, 0, 0, 0.502);
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 5000;
+        }
+
+        .img_show {
+            transform: scale(1) !important;
+        }
+
+        .img {
+            max-width: 900px;
+            width: 100%;
+            height: 900px;
+            position: fixed;
+            overflow: auto;
+            z-index: 999999;
+            top: 28%;
+            left: 37%;
+            margin: -226px 0 0 -190px;
+            border-radius: 2px;
+            background: #fff;
+            transition: 0.3s;
+            transform: scale(0)
+        }
+
+        .close {
+            text-align: right;
+            padding-right: 18px;
+            padding-top: 11px;
+            cursor: pointer;
+        }
+
+        .img_w {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="img_big" class="img_style display">
+        <div class="img" id="cre_img">
+            <div class="close" id="close_h">x</div>
+        </div>
+    </div>
+    <div class="container">
+        <img src="enheng.png" alt="hhhh" id="img_mod" class="img_fluid">
+        <img src="jszc.png" alt="hhhh" id="img_mod" class="img_fluid">
+        <img src="kfgj.png" alt="hhhh" id="img_mod" class="img_fluid">
+        <img src="logo.png" alt="hhhh" id="img_mod" class="img_fluid">
+
+    </div>
+
+    <script>
+        window.onload = function () {
+            let img_mod = document.getElementsByTagName("img");
+            let cre_img = document.getElementById("cre_img");
+            let img_big = document.getElementById("img_big");
+
+            let new_img = new Image();
+
+
+            for (let i = 0; i < img_mod.length; i++) {
+                img_mod[i].onclick = function () {
+                    console.log(img_mod[i])
+                    let img_mod_a = img_mod[i].getAttribute("src");
+                    new_img.src = img_mod_a;
+                    new_img.className = "img_w"
+                    cre_img.append(new_img);
+                    img_big.setAttribute("class", "img_style");
+                    setTimeout(() => {
+                        cre_img.setAttribute("class", "img img_show")
+                    }, 30);
+                }
+            }
+
+            
+
+            let close = document.getElementById("close_h");
+            close.onclick = function () {
+                setTimeout(() => {
+                    cre_img.setAttribute("class", "img")
+                }, 30);
+                img_big.setAttribute("class", "img_style display");
+                let parent_img_mo = new_img.parentNode;
+                parent_img_mo.removeChild(new_img);
+            }
+        }
+    </script>
+</body>
+
+</html>

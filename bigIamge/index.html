@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bi_img</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #normal {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            border: 1px solid #333;
+            top: 10px;
+        }
+
+        #normal>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #lay {
+            background: orange;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            display: none;
+        }
+
+        #bigImg {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 450px;
+            top: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+            display: none;
+        }
+
+        #bigImg>img {
+            position: absolute;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="normal">
+        <img src="./1.jpeg" alt="">
+        <span id="lay"></span>
+    </div>
+    <div id="bigImg">
+        <img src="./1.jpeg" alt="">
+    </div>
+
+    <script>
+        window.onload = function () {
+            let nor = document.getElementById("normal");
+            let lay = document.getElementById("lay");
+            let big = document.getElementById("bigImg");
+            let bigImg_img = big.getElementsByTagName("img")[0];
+
+            nor.onmousemove = function (ev) {
+                let en = ev || event;
+                let scale = 4;
+            }
+        }
+    </script>
+</body>
+
+</html>

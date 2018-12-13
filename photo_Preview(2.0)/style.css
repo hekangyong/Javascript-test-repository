@@ -1,0 +1,145 @@
+.img_fluid {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.display {
+    display: none;
+}
+
+.img_style {
+    background-color: rgba(0, 0, 0, 0.502);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 5000;
+}
+
+.img_show {
+    transform: scale(1) !important;
+}
+
+.img {
+    max-width: 1000px;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    z-index: 999999;
+    top: 36%;
+    left: 37%;
+    margin: -226px 0 0 -190px;
+    border-radius: 2px;
+    background: #fff;
+    transition: 0.3s;
+    transform: scale(0);
+    overflow: hidden;
+    background-color: #cfcece;
+}
+
+.close {
+    padding-right: 18px;
+    padding-top: 11px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+    right: 0;
+}
+
+.img_w {
+    width: 100%;
+}
+
+.img_lb {
+    position: absolute;
+    z-index: 1;
+    width: 6426px;
+    font-size: 0;
+}
+
+.lb_img_box {
+    width: 1000px;
+    height: 733px;
+    float: left;
+    display: block;
+}
+
+#buttons span {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #333;
+}
+
+#buttons span:last-child {
+    margin-right: 0px;
+}
+
+.buton_span {
+    position: relative;
+    width: 1000px;
+    height: 735px;
+}
+
+#buttons {
+    position: absolute;
+    left: 460px;
+    bottom: 0px;
+    opacity: 0;
+    z-index: 3;
+    background-color: #e3e3e3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 40px;
+    padding-left: 40px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: 1px solid #c9c9c9;
+    transition: all 0.5s;
+}
+
+.arrow {
+    position: absolute;
+    top: 375px;
+    text-decoration: none;
+    font-size: 32px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    z-index: 3;
+}
+
+#prev {
+    left: -62px;
+    transition: all 0.5s;
+}
+
+#next {
+    right: -62px;
+    transition: all 0.3s;
+}
+
+.buton_span:hover #prev {
+    left: 0px;
+}
+
+.buton_span:hover #next {
+    right: 0px;
+}
+
+.buton_span:hover #buttons {
+    opacity: 1;
+}
+
+.on {
+    background-color: #fff !important;
+}

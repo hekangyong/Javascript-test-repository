@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MDN_test</title>
+</head>
+
+<body>
+    <div id="test">aaa</div>
+    <script>
+        document.getElementById("test").addEventListener("click", function (event) {
+            // display the current click count inside the clicked div
+            event.target.textContent = "click count: " + event.detail;
+        }, false);
+    </script>
+</body>
+
+</html>
