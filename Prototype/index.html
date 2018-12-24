@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prototype</title>
+</head>
+
+<body>
+    <script>
+        // let f = function () {
+        //     this.a = 1;
+        //     this.b = 2;
+        // }
+        // let o = new f();
+        // console.log(o);
+        // f.prototype.b = 3;
+        // f.prototype.c = 4;
+        // console.log(o.c);
+
+        // window.onload = function () {
+        //     let total = [0, 1, 2, 3, 4].reduce(function (a, b) {
+        //         return a + b;
+        //     })
+        // }
+
+        function Person() {
+
+        }
+        Person.prototype.name = "Robert";
+        Person.prototype.ages = "18";
+        var person1 = new Person();
+        var person2 = new Person();
+        var person = new Person();
+        console.log(person.__proto__ === Person.prototype);
+        console.log(Person === Person.prototype.constructor)
+        //es5, 同样可以获得对象的原型
+        console.log(Object.getPrototypeOf(person) === Person.prototype);
+        console.log(person1.ages);
+        console.log(person2.name)
+
+        //实例与原型
+        function PersonOne(){
+
+        }
+        PersonOne.prototype.name = "Kevin";
+        var use = new PersonOne();
+        use.name = "Daisy";
+        console.log(use.name);
+        delete use.name;
+        console.log(use.name);
+
+
+        var obj = new Object();
+        obj.name = 'Robert';
+        console.log(obj.name);
+    </script>
+</body>
+
+</html>

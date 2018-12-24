@@ -72,7 +72,7 @@
                             button_span[j].className = ""
                         }
                     }
-                    console.log(index);
+                    // console.log(index);
                 }
             }
 
@@ -89,10 +89,7 @@
             }
 
             close.onclick = function () {
-                setTimeout(() => {
-                    cre_img.setAttribute("class", "img");
-                }, 30);
-                img_big.setAttribute("class", "img_style display")
+                closes();
             }
 
             prev.onclick = function () {
@@ -168,6 +165,20 @@
                 for (let i = 0; i < button_span.length; i++) {
                     let new_index = i + 1;
                     (index == new_index) ? button_span[i].className = "on": button_span[i].className = "";
+                }
+            }
+
+            function closes() {
+                setTimeout(() => {
+                    cre_img.setAttribute("class", "img");
+                }, 30);
+                img_big.setAttribute("class", "img_style display")
+            }
+
+            document.onkeydown = function (e) {
+                let keyNum = window.event ? e.keyCode : e.which;
+                if (keyNum == 27) {
+                    closes();
                 }
             }
         }
