@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="questions"></div>
+    <script>
+        // 问题类型
+        var AnswerType = {
+            Choice: 0,
+            Input: 1
+        }
+
+        // 问题实体
+        function question(label, answerType, choices) {
+            return {
+                label: label,
+                answerType: answerType,
+                choices: choices // 这里的Choices 是可选参数
+            }
+        }
+        
+        var view = (function () {
+            // render一个问题
+            function renderQuestion(target, question) {
+                var questionWrapper = document.createElement("div");
+                questionWrapper.className = "question";
+
+                var questionLabel = document.createElement("div");
+                questionLabel.className = "question-label";
+                var label = document.createTextNode(question.label);//创建文本节点
+                questionLabel.appendChild(label); //在指定节点的最后一个子节点列表之后添加一个新的子节点。
+
+                var answer = document.createElement("div");
+                answer.className = "question-input";
+
+                // 根据不同的类型展示不痛的代码， 分别是下啦菜单和输入框两种
+                if (question.answerType === AnswerType.Choice) {
+                    var input = document.createElement("select");
+                    var len = question.choices.length;
+                    for (var i = 0; i < len; i++) {
+                        var option = document.createElement("option");
+                        option.text = question.choices[i];
+                        option.value = question.choices[i];
+                        input.appendChild(option);
+                    }
+                } else if (question.answerType === AnswerType.Input) {
+                    var input = document.createElement("input");
+                    input.text = "text";
+                }
+
+                answer.appendChild(input);
+                questionWrapper.appendChild(questionLabel);
+                questionWrapper.appendChild(answer);
+                target.appendChild(questionWrapper);
+            }
+
+            return {
+                render: function (target, questions) {
+                    // 便利所有问题
+                    for (var i = 0; i < questions.length; i++) {
+                        renderQuestion(target, questions[i]);
+                    }
+                }
+            }
+        })();
+
+        var questions = [
+            question('你在过去30天内用过烟草制品吗？', AnswerType.Choice, ["Yes", "no"]),
+            question('你现在用的是什么药？?', AnswerType.Input)
+        ];
+
+        var questionRegion = document.getElementById("questions");
+        view.render(questionRegion, questions);
+    </script>
+</body>
+
+</html>

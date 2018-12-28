@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test_music</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">`
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="play-wrapper">
+            <img class="cover">
+            <audio class="music" controls="true">
+                您的浏览器不支持 audio 标签。
+            </audio>
+            <div class="detail">
+                <div class="info">
+                    <div class="name"></div>
+                    <div class="singer"></div>
+                </div>
+                <div class="controls">
+                    <button class="ply-btn">
+                        <i class="icon-play"></i>
+                    </button>
+                    <div class="progressBar">
+                        <span class="progress"></span>
+                    </div>
+                    <div class="time">
+                        <span class="Ctime">0:00</span>/
+                        <span class="Ttime"></span>
+                    </div>
+                    <button class="noVol">
+                        <i class="icon-volume-medium"></i>
+                    </button>
+                    <div class="vol">
+                        <span class="nowVol"></span>
+                    </div>
+                    <button class="menu">
+                        <i class="icon-menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mode">
+            <span class="preSongBtn">
+                <i class='icon-backward'></i>
+            </span>
+            <span class="nextSongBtn">
+                <i class="icon-forward"></i>
+            </span>
+            <span class="playMode">
+                <i class="icon-repeat"></i>
+            </span>
+        </div>
+        <div class="list">
+            <ul class="songContainer">
+            </ul>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+<script>
+    window.onload = function () {
+        new Controls({
+            songs: [
+                {
+                    src: './music/Catch My Breath - Alex Goot,Against the Current.mp3',
+                    name: 'Catch My Breath',
+                    author: 'Alex Goot,Against the Current',
+                    cover: 'http://p1.music.126.net/PNRvAXY7IeXMtHN8gE5n4Q==/6665239488419620.jpg?param=130y130'
+                },
+                {
+                    src: './music/stay with me（Cover：朴灿烈／Punch） - 秋仁.mp3',
+                    name: 'stay with me（Cover：朴灿烈／Punch）',
+                    author: '秋仁',
+                    cover: 'http://p1.music.126.net/Hcpd514w5iqa_ozAXtwikQ==/109951162862670515.jpg?param=130y130'
+                },
+
+                {
+                    src: './music/そばにいるね - 青山テルマ.mp3',
+                    name: 'そばにいるね',
+                    author: '青山テルマ',
+                    cover: 'http://p2.music.126.net/GFbvZasO56D_Co6Rr31srA==/109951163089243761.jpg?param=130y130'
+                },
+                // {
+                //     src: 'https://m10.music.126.net/20181224163952/6bcea2010951d1a86d7ec6d60409751d/ymusic/065f/540e/0f0b/15876f6960cd9b27dee68a7de146920a.mp3',
+                //     name: '世本常态',
+                //     author: '隔壁老樊',
+                //     cover: 'http://p2.music.126.net/ouMDxBVUg7Ny54QXskYLOQ==/109951163739191176.jpg?param=130y130'
+                // }
+            ]
+        });
+    }
+</script>

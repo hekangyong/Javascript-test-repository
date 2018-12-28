@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script>
+        function HtmlControl(options) {
+            var el = options.element;
+            el.style.width = options.width;
+
+            el.style.height = options.height;
+
+            el.style.top = options.top;
+
+            el.style.background = options.background;
+
+            el.innerHTML = options.text;
+
+            el.style.color = option.color;
+
+            console.log(el)
+        }
+
+        var option = {
+            element: document.getElementById('test'),
+
+            left: 50,
+
+            top: 0,
+
+            width: 100,
+
+            height: 200,
+
+            background: '#ccc',
+
+            color: '#000',
+
+            text: '什么是开闭原则'
+        }
+        option.background = "red";
+        option.color = "#ffff"
+        HtmlControl(option);
+    </script>
+</body>
+
+</html>

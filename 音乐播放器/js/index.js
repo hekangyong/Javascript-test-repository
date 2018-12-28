@@ -174,9 +174,9 @@
             
             let min = parseInt(duration / 60);
             let sec = parseInt(duration - min * 60);
-            if (sec < 10) {
-                sec = '0' + sec;
-            }
+            // if (sec < 10) {
+            //     sec = '0' + sec;
+            // }
             this.Ttime.innerHTML = min + ": " + sec;
             console.log("as");
         },
