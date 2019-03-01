@@ -1,0 +1,43 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fff;
+    font-size: 10pt;
+    font-family: Arial, verdana;
+}
+
+
+#pagewraper {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tb_job_list {
+    width: 1400px;
+    border-collapse: collapse;
+}
+
+.tb_job_list td {
+    border: solid #dadada 1px;
+    height: 30px;
+    font-size: 10pt;
+    color: #555555;
+
+    background-color: #fff;
+    
+}
+
+.tb_job_list thead td {
+    height: 40px;
+    font-weight: bold;
+    color: #999;
+    background-color: #fffceb;
+}
+
+
+a img {
+    border: none;
+}

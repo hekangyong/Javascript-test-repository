@@ -1,0 +1,69 @@
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>动态添加删除行</title>
+        <!-- <script type="text/javascript" src="js/jquery1.7.js"></script> -->
+        <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            // 获取表格数据
+            $(function () {
+     
+                //    票种名称name 原价pre_price 现价price 张数total
+                $("#btn").click(function () {
+                    // $(document).ready(function () {
+                        var num = $("#dynamicTable tr").length;
+                        var info = [];
+                        for (var i = 0; i < num; i++) {
+                            var obj = {};
+                            obj.name = $("#dynamicTable tr").eq(i).children("td").eq(0).children("input").val();
+                            obj.pre_price = $("#dynamicTable tr").eq(i).children("td").eq(1).children("input").val();
+                            obj.price = $("#dynamicTable tr").eq(i).children("td").eq(2).children("input").val();
+                            obj.total = $("#dynamicTable tr").eq(i).children("td").eq(3).children("input").val();
+                            console.log(obj)
+                            info.push(obj);
+                        }
+                        console.log(info)
+                    // })
+                })
+            })
+        </script>
+    </head>
+     
+    <body>
+        <div style="width:720px;margin:20px auto;">
+            <button type="button" id="btn">获取表格数据</button>
+            <form action="" id="ht">
+                <table id="dynamicTable">
+                    <tbody>
+                        <tr>
+                            <td height="30" align="center">
+                                <input type="text" name="name" size="2" value="1" />
+                            </td>
+                            <td align="center">
+                                <input type="text" name="pre_price" /></td>
+                            <td align="center">
+                                <input type="text" name="price" /></td>
+                            <td align="center">
+                                <input type="text" name="total" /></td>
+                            <td>
+                                <input type="button" id="Button1" onClick="deltr(this)" value="删行">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">
+                                <input type="text" name="name" size="2" value="1" /></td>
+                            <td align="center">
+                                <input type="text" name="pre_price" /></td>
+                            <td align="center">
+                                <input type="text" name="price" /></td>
+                            <td align="center">
+                                <input type="text" name="total" /></td>
+                            <td>
+                                <input type="button" id="Button1" onClick="deltr(this)" value="删行">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button>提交数据</button>
+            </form>
+        </div>
+    </body>
