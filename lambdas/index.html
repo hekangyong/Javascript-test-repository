@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // javascript 箭头函数 lambdas表达式
+        var arr = ["wei", "ze", "yang"];
+        arr.map(item => "Mr." + item); // ["Mr.wei", "Mr.ze", "Mr.yang"]
+
+        function add(a, b) {
+            if (arguments.length == arguments.callee.length) {
+                return a + b
+            } else {
+                return "erro";
+            }
+        }
+        add(10, 20)
+
+        function fn(n) {
+            if (n == 1) {
+                return 1;
+            } else {
+                return n + arguments.callee(n - 1)
+            }
+        }
+
+        console.log(fn(100))
+        /*
+         *********
+         * arguments.length 获取实参本身长度
+         * arguments.celle.length 获取形参本身
+         * arguments.calle 指带函数本身
+         * arguments 常用在递归操作
+         *********
+         */
+
+        var student = {
+            names: ["wei", "ze", "yang"],
+            setName: function () {
+                console.log(this);
+                this.name = this.names.join("");
+            },
+            getName: function () {
+                console.log(this);
+                return () => {
+                    return {
+                        myName: "My name is " + this.name
+                    }
+                }
+            }
+        }
+        student.setName();
+        var student1 = student.getName();
+        console.log(student1().myName);
+
+        var mycars = ["saab", "Volvo", "BMW"];
+        for(var x in mycars){
+            console.log(x+ " - " + mycars[x]);
+        }
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var friends = ["Mei", "Stacy", "Andy", "Pick"];
+
+        friends.forEach(function (val, index) {
+            console.log(index + 1 + " - " + val)
+        });
+
+        var alluserData = [];
+
+        function logStuff(userData) {
+            if (typeof userData === 'string') {
+                console.log(userData);
+            } else if (typeof userData === 'Object') {
+                for (var item in userData) {
+                    console.log(item + ": " + userData[item])
+                }
+            }
+        }
+
+        function getInput(options, callback) {
+            alluserData.push(options);
+            callback(options);
+        }
+
+        var data = [
+            {name: "Rich", speciality: "javascript"},
+            {name: "Rich", speciality: "javascript"},
+            {name: "Rich", speciality: "javascript"},
+            {name: "Rich", speciality: "javascript"},
+        ]
+        getInput(data, logStuff)
+        console.log(alluserData)
+    </script>
+</body>
+
+</html>

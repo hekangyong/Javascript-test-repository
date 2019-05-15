@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function (calculator) {
+            function convert(input) {
+                return parseInt(input);
+            }
+            calculator.add = function (a, b) {
+                return convert(a) + convert(b);
+            }
+            window.aa = calculator;
+        })(window.aa || {});
+
+        // 新增需求
+        (function (calculator) {
+            calculator.remain = function (a, b) {
+                return a % b;
+            }
+            window.calculator = calculator;
+        })(window.calculator || {});
+
+        console.log(calculator.remain(4, 2));
+        console.log(aa.add(4, 3));
+
+        var calculator_next = {
+            add: function (a, b) {
+                return this.convert(a) + this.convert(b);
+            },
+            convert: function (a) {
+                return parseInt(a);
+            },
+            remain: function (a, b) {
+                return a % b;
+            }
+        }
+
+        console.log(calculator_next.add(4, 3));
+        console.log(calculator_next.remain(4, 6));
+
+
+        var calculator_next_two = (function () {
+            function convert(a) {
+                return parseInt(a)
+            }
+
+            function add(a, b) {
+                return convert(a) + convert(b);
+            }
+
+            function remain(a, b) {
+                return a % b
+            }
+
+            return {
+                add: add,
+                remain: remain
+            }
+        })();
+
+        console.log("asd " +  calculator_next_two.add(4,3))
+        console.log(calculator_next_two.remain(4, 6));
+
+    </script>
+</body>
+
+</html>
