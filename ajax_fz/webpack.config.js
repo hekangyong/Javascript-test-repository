@@ -48,6 +48,7 @@ module.exports = {
             hash: true,
             template: __dirname + '/index.html',
             filename: 'index.html',     //在生产模式下生成的文件名
+            chunks: ['index','scss']
         }),
         new webpack.HotModuleReplacementPlugin()  //开启热跟新的模式
     ],
