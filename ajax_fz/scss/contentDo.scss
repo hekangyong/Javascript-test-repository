@@ -1,0 +1,56 @@
+@import "AllMixin";
+
+.body-content{
+    .title{
+        @include font(24px, 500, .5px, #131313);
+        line-height: 35px;
+        margin-bottom: 40px;
+    }
+    .nav-tabs {
+        border:none !important;
+        .nav-item{
+            flex: auto;
+        }
+        .nav-link{
+            border: none;
+            background-color: #f4f4f4;
+            color: #868686;
+            border-radius: 0px;
+            padding: 13px;
+            border-top: 2px solid #f4f4f4;
+            @include transition(0.3s);
+            h6{
+                margin-bottom: 0px;
+                @include font(16px, 500, 0.5px, #868686);
+            }
+        }
+        .nav-link.active{
+            background-color: #fff;
+            border-top: 2px solid #32b8da !important;
+            h6{
+                color: #000 !important;
+            }
+        }
+        .nav-link:hover{
+            background-color: #4c6575 !important;
+            h6{
+                color: #fff !important;
+            }
+            cursor: pointer;
+            border: none;
+            border-top: 2px solid #4c6575;
+        }
+    }
+    .tab-content{
+        background-color: #fff;
+        padding: 30px 15px 15px 15px;
+        border:none !important;
+        box-shadow: 0 3px 1px -1px #ededed;
+        p{
+            margin-bottom: 0px;
+            @include font(16px, 400, 0.5px, #868686);
+            line-height: 26px;
+            text-align: justify;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.DS_Store
+/node_modules
+*.log
+/.sass-cache
+
+.idea/
+package-lock.json
+
+.vscode

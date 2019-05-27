@@ -1,0 +1,54 @@
+@import "AllMixin";
+.question-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ebe8e8;
+    a{
+        background-color: #32b8da;
+        display: block;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        @include font(14px, 500, 0.5px, #ffff);
+        border-radius: 5px;
+        transition: all 0.3s;
+        border:1px solid #32b8da;
+    }
+    h3{
+        @include font(24px, 500, .5px, #343333); 
+        margin-bottom: 0px;
+    }
+    a:hover{
+        background-color: #fff;
+        border: none;
+        color: #32b8da;
+        text-decoration: none;
+        border: 1px solid #32b8da;
+    }   
+}
+.question{
+    padding: 20px 0;
+    border: none;
+    border-bottom: 1px solid #ebe8e8;
+    h5{
+        margin-bottom: 10px;
+        @include font(16px, 500, 0.5px, #005999);
+    }
+    .answer{
+        @include font(14px, 500, 0.5px, #948a8a);
+        margin-bottom: 10px;
+    }
+    .time{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        p{
+            @include font(14px, 500, 0.5px, #9199a1)  ;
+            margin-bottom: 0px;
+        }
+    }
+}

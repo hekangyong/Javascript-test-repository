@@ -1,0 +1,56 @@
+@import "AllMixin";
+
+.medical-develop-content{
+    .medical-ul{
+        padding-left: 0;
+        li{
+            list-style-type: none;
+            line-height: 34px;
+            border-bottom: 1px solid #e1e1e1;
+            padding: 5px 5px 5px 0;
+            i{
+                color:  #c0bfbf;
+                margin-right: 5px;
+            }
+            a{
+                @include font(14px, 500, 1px, #333743);                
+            }
+            a:hover{
+                color: #32b8da;
+            }
+            span{
+                float: right;
+                @include font(11px, 500, .5px, #333743);                
+            }
+        }
+    }
+}
+.new-section{
+    padding-top: 0px;
+    border: none;
+    .new-tab:first-child{
+        padding-top: 0px;
+    }
+    .new-tab{
+        padding: 15px 0;
+    }
+    .news-img{
+        height: 130px;
+        img{
+            height: 130px;
+        }
+    }
+    .news-content{
+        h3{
+            margin-top: 0px;
+            font-size: 18px;
+        }
+        p{
+            margin-top: 10px !important;
+            font-size: 13px;
+        }
+    }
+}
+.page{
+    padding-top: 35px;
+}

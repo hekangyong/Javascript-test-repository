@@ -1,0 +1,40 @@
+@mixin font($size, $weight, $letter, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: $letter;
+    color: $color;
+}
+@mixin backgroundImage($url, $fixed, $cover, $repeat, $position, $positions) {
+    background-image: $url;
+    background-attachment: $fixed;
+    background-size: $cover;
+    background-repeat: $repeat;
+    background-position: $position $positions;
+}
+
+@mixin backImagePadding($url, $repeat) {
+    background-image: $url;
+    background-repeat: $repeat;
+}
+
+@mixin WH($width, $height) {
+    width: $width;
+    height: $height;
+}
+@mixin beforeBack($back, $zIndex) {
+    content: "";
+    background: $back;
+    height: 100%;
+    width: 100%;
+    z-index: $zIndex;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    opacity: 0.9;
+}
+@mixin transition($s) {
+    -webkit-transition: all $s;
+    -moz-transition: all $s;
+    -o-transition: all $s;
+    transition: all $s;
+}

@@ -1,0 +1,57 @@
+@import "AllMixin";
+.register-form{
+    padding: 120px 0;
+    .register-form-back{
+        border: 1px solid #cad9ea;
+        padding: 20px 40px;
+        .label-style{
+            @include font(14px , 500, .5px, #6e6e6e)
+        }
+        .form-text{
+            margin-bottom: .5rem;
+        }
+        .register-btn{
+            button{
+                padding-left: 20px;
+                padding-right: 20px;
+                letter-spacing: .5px;
+            }
+        }
+    }
+    .user-login{
+        h3{
+            @include font(20px, bold, .5px, #666);
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            line-height: 31px;
+        }
+    }
+    .user-information{
+        h3{
+            @include font(20px, bold, .5px, #666);
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    }
+}
+.expert{
+    @include font(14px, 500, 0.5px, #807676);
+    margin-bottom: 0px;
+}
+@media (max-width: 768px){
+    .user-login{
+        .label-style{
+            text-align: left !important;
+        }
+        .expert{
+            margin-top: 5px;
+        }
+    }
+    .user-information{
+        .label-style{
+            text-align: left !important;
+        }
+    }
+}

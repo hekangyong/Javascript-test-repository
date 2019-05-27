@@ -1,0 +1,42 @@
+@import "AllMixin";
+.login-content{
+    padding: 120px 0;
+    .register-form-back{
+        border: 1px solid #cad9ea;
+        padding: 20px 40px;
+        .label-style{
+            @include font(14px , 500, .5px, #070707);
+            margin-bottom: 7px;
+        }
+        .form-text{
+            margin-bottom: .5rem;
+        }
+        .register-btn{
+            margin-top: 20px;
+            button{
+                padding-left: 20px;
+                padding-right: 20px;
+                letter-spacing: .5px;
+            }
+        }
+        .forget-password{
+            display: flex;
+            justify-content: space-between;
+            a{
+                @include font(14px, 500, .5px, #979191)
+            }
+        }
+    }
+    .user-login{
+        h3{
+            @include font(20px, bold, .5px, #050505);
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    }
+    .row{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}

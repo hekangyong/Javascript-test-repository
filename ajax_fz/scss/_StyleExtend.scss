@@ -1,0 +1,32 @@
+%a_btn {
+    background-color: #50b7d9;
+    padding: 13px 50px;
+    border-radius: 30px;
+    border: 1px solid #50b7d9;
+}
+%a_btnHover {
+    background-color: transparent;
+    border: 1px solid #50b7d9;
+    color: #50b7d9;
+    text-decoration: none
+}
+%service_icon {
+    content: "";
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    position: absolute;
+}
+%backTitleH3{
+    @include font(23px, 500, 1.5px, #fff);
+    margin-bottom: 10px;
+}
+%backTitlep{
+    @include font(14px, 500, 1.5px, rgba(255, 255, 255, .75));
+    margin-bottom: 40px;
+}
+%bannera{
+    @include font(16px, bold, .5px, #fff);
+    margin-bottom: 20px;
+    @extend %a_btn;
+    transition: all 0.3s;
+}

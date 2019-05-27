@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const {
+            log
+        } = console;
+
+        function* fibs() {
+            let a = 0;
+            let b = 1;
+            while (true) {
+                yield a;
+                [a, b] = [b, a + b];
+            }
+        }
+
+        let [first, second, third, fourth, fifth, sixth] = fibs();
+        log(sixth);
+
+        let obj = {
+            p: [
+                'hello',
+                {
+                    y: 'World'
+                }
+            ]
+        };
+
+        let {
+            p,
+            p: [x, {
+                y
+            }]
+        } = obj;
+        log(x);
+        log(y);
+        log(p);
+
+
+        const node = {
+            loc: {
+                start: {
+                    line: 1,
+                    column: 5
+                }
+            }
+        }
+        let {loc, loc:{start}, loc: {start: {line}}} = node;
+
+        log(line);
+        log(loc);
+        log(start);
+
+    </script>
+</body>
+
+</html>
