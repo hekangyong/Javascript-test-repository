@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>New Web Project</title>
+</head>
+
+<body>
+    <input type="button" id="btn" value="click me" />
+    <div id="div" style="width:100px; height:100px; background:#ccc; display: none; transition: all 0.3s"></div>
+</body>
+<script>
+    var oDiv = document.getElementById('div');
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function () {
+        // oDiv.style.opacity = '1';
+        oDiv.style.display = 'block'
+        setTimeout(none, 1500)
+    };
+    function none(){
+        // oDiv.style.opacity = '0';    
+        oDiv.style.display = 'none'
+
+    }
+</script>
+
+</html>

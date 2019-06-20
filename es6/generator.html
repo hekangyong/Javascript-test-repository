@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* helloWorldGenerator() {
+            yield 'hello';
+            yield 'world';
+            return 'ending'
+        }
+        var hw = helloWorldGenerator();
+        console.log(hw.next());
+        console.log(hw.next());
+        console.log(hw.next());
+        console.log(hw.next());
+
+        var arr = [3, [
+                [6, 45], 1
+            ],
+            [546, 213]
+        ];
+        var flat = function* (a) {
+            var length = a.length;
+            for (var i = 0; i < length; i++) {
+                var item = a[i];
+                if (typeof item !== 'number') {
+                    yield* flat(item);
+                } else {
+                    yield item;
+                }
+            }
+        }
+
+        for (var f of flat(arr)) {
+            console.log(f);
+        }
+
+
+        function* fun() {
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            yield 5;
+            yield 6;
+            return 7;
+        }
+
+        for (var a of fun()) {
+            console.log(a)
+        }
+
+        function* fibonacci() {
+            let [prev, curr] = [0, 1];
+            for (;;) {
+                yield curr;
+                [prev, curr] = [curr, prev + curr];
+            }
+        }
+
+        for (let n of fibonacci()) {
+            if (n > 1000000) break;
+            console.log(n);
+        }
+    </script>
+</body>
+
+</html>
